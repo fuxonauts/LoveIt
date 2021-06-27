@@ -9,7 +9,22 @@
     flex: 1 0 auto;
 
     .container {
+      float: left;
+      width: 75%;
       padding: 0 1rem;
+    }
+
+    .logo-at-right {
+      position: fixed;
+      right: 0;
+      height: 100vh;
+      max-heigh: 100vh;
+
+      img {
+        box-sizing: border-box;
+        padding-top: $header-height;
+        height: 100%;
+      }
     }
   }
 }
