@@ -22,7 +22,9 @@
 
       img {
         box-sizing: border-box;
-        padding-top: $header-height;
+        padding-top: $header-height + 3rem;
+        padding-right: 3rem;
+        padding-bottom: 3rem;
         height: 100%;
       }
     }
