@@ -135,6 +135,9 @@ other = "Home"
 
 [readMore]
 other = "Go to"
+
+[where]
+other = "Place"
 # === posts/single.html ===
 
 # === 404.html ===
