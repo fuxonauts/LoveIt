@@ -13,6 +13,16 @@
             </div>
         {{- end -}}
 
+<div class="toc" id="toc-auto" style="visibility: visible; top: 31.4rem; min-width: 20vw; left: 22vw; position: fixed">
+  <h2 class="toc-title">{{ T "filter" }}</h2>
+<div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genre" }}</a></li>
+    <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizer" }}</a></li>
+  </ul>
+</nav></div>
+</div>
+
         {{- /* Posts */ -}}
         {{- if ne $posts.enable false | and .Site.RegularPages -}}
             {{- /* Paginate */ -}}

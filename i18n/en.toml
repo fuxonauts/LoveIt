@@ -138,6 +138,12 @@ other = "Go to"
 
 [where]
 other = "Place"
+
+[organizer]
+other = "Organizer"
+
+[genre]
+other = "Genre"
 # === posts/single.html ===
 
 # === 404.html ===
@@ -196,3 +202,6 @@ other = "CHANGED"
 [deleted]
 other = "DELETED"
 # === shortcodes/version.html ===
+
+[filter]
+other = "Filters"

@@ -21,8 +21,20 @@
 <table>
 <tbody>
 <tr>
-<td style="border: 0"><b>{{ T "where" }}:</b></td>
-<td style="border: 0">{{- .Params.place | safeHTML -}}, {{ .Params.address | safeHTML }}</td>
+<td style="border: 0; width: 10%"><b>{{ T "where" }}:</b></td>
+<td style="border: 0">
+{{ range .Params.organizers }}
+    <a href="{{ $.Site.BaseURL }}organizers/{{ . | urlize | safeHTML }}">{{ . }}</a>
+{{ end }}, 
+{{ .Params.address | safeHTML }}
+</td>
+</tr>
+<td style="border: 0; width: 10%"><b>{{ T "genre" }}:</b></td>
+<td style="border: 0">
+{{ range .Params.genres }}
+    <a href="{{ $.Site.BaseURL }}genres/{{ . | urlize | safeHTML }}">{{ . }}</a>
+{{ end }}
+</td>
 </tr>
 </tbody>
 </table>
@@ -45,7 +57,5 @@ img.lazyloaded { width: 100%; height: 100%; }
                 {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
         </div>
     {{- end -}}
-
-    {{- /* Date */ -}}
 
 </article>
