@@ -13,6 +13,14 @@
     <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizer" }}</a></li>
   </ul>
 </nav></div>
+
+<div style="height: 100%; width: 20%; position: fixed; z-index: 1; top: 0; left: 0; padding-top: 31.4vh; padding-left: 2vw">
+  <h2 class="single-title">{{ T "supporters" }}</h2>
+  <img src="{{ .Site.BaseURL }}lib/img/bkm.png" style="width: 13vw">
+  <img src="{{ .Site.BaseURL }}lib/img/Play-Out-Loud.png" style="width: 13vw">
+  <img src="{{ .Site.BaseURL }}lib/img/Neustart-Kultur.png" style="width: 13vw">
+</div>
+
 </div>
 
     <img src="{{ .Site.BaseURL }}lib/img/event_header.jpg" style="width: 100%">
