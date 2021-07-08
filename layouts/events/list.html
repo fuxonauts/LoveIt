@@ -4,14 +4,6 @@
     {{- $posts := .Site.Params.home.posts -}}
 
     <div class="page home" events>
-        {{- /* Content */ -}}
-        {{- if .Content -}}
-            <div class="single">
-                <div class="content" id="content">
-                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
-                </div>
-            </div>
-        {{- end -}}
 
 <div class="toc" id="toc-auto" style="visibility: visible; top: 31.4rem; min-width: 20vw; left: 22vw; position: fixed">
   <h2 class="toc-title">{{ T "filter" }}</h2>
@@ -22,6 +14,15 @@
   </ul>
 </nav></div>
 </div>
+
+    <img src="{{ .Site.BaseURL }}lib/img/event_header.jpg" style="width: 100%">
+
+    <div class="event-list" style="padding-left: 20%">
+    {{- /* Title */ -}}
+    <h2 class="single-title" itemprop="name headline">
+        {{ with (index .Site.Menus.main 1) }}{{ .Title }}{{ end }}
+    </h2>
+
 
         {{- /* Posts */ -}}
         {{- if ne $posts.enable false | and .Site.RegularPages -}}
@@ -42,5 +43,7 @@
             {{- end -}}
             {{- partial "paginator.html" . -}}
         {{- end -}}
+      </div>
     </div>
 {{- end -}}
+
