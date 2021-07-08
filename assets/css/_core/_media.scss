@@ -1,12 +1,14 @@
 @media only screen and (max-width: 1440px) {
   .page {
-    width: 90%;
+    padding-left: 22%;
+    padding-right: 30%;
   }
 }
 
 @media only screen and (max-width: 1200px) {
   .page {
-    width: 85%;
+    padding-left: 22%;
+    padding-right: 30%;
   }
 
   #header-desktop .header-wrapper {
@@ -19,6 +21,14 @@
 }
 
 @media only screen and (max-width: 960px) {
+  .logo-at-right {
+    display: none;
+  }
+
+  .logo-at-left {
+    display: none;
+  }
+
   #toc-auto {
     display: none;
   }
@@ -28,7 +38,9 @@
   }
 
   .page {
-    width: 80%;
+    padding-left: 0;
+    padding-right: 0;
+    width: 95%;
   }
 
   #header-desktop .header-wrapper {
@@ -38,6 +50,10 @@
 
 @media only screen and (max-width: 680px) {
   .logo-at-right {
+    display: none;
+  }
+
+  .logo-at-left {
     display: none;
   }
 
@@ -54,7 +70,9 @@
   }
 
   .page {
-    width: 100%;
+    width: 95%;
+    padding-left: 0;
+    padding-right: 0;
 
     [header-mobile] & {
       padding-top: $header-height;

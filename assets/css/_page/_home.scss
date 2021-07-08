@@ -67,6 +67,9 @@
 }
 
 .home[posts] {
+  padding-left: 22%;
+  padding-right: 30%;
+
   .home-profile {
     @include transform(translateY(0));
     padding-top: 2rem;
@@ -318,8 +321,8 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   flex-grow: 1;
-  padding-left: 22%;
-  padding-right: 30%;
+/*  padding-left: 22%;
+  padding-right: 30%;*/
   padding-top: 14.6rem;
 
 .event-list {
