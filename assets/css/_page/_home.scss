@@ -322,9 +322,11 @@
   padding-right: 30%;
   padding-top: 14.6rem;
 
+.event-list {
+
   .summary {
+    overflow: auto;
     width: 100%;
-    padding-left: 20%;     
     padding-top: 2.5rem;
     color: $global-font-color;
     margin: 1%;
@@ -427,4 +429,5 @@
       }
     }
   }
+}
 }
