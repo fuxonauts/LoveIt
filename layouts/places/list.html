@@ -10,6 +10,12 @@
     {{- $posts := .Site.Params.home.posts -}}
 
     <div class="page home" places>
+    {{- /* Title */ -}}
+    <h2 class="single-title" itemprop="name headline">
+        {{ with (index .Site.Menus.main 2) }}{{ .Name }}{{ end }}
+    </h2>
+
+
         {{- /* Content */ -}}
         {{- if .Content -}}
             <div class="single">
