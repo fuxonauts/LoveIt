@@ -1,3 +1,19 @@
+@media print {
+  .logo-at-right {
+    display: none;
+  }
+
+  .logo-at-left {
+    display: none;
+  }
+
+  .page {
+    padding-left: 0;
+    padding-right: 0;
+    width: 95%;
+  }
+}
+
 @media only screen and (max-width: 1440px) {
   .page {
     padding-left: 22%;
