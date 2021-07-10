@@ -7,51 +7,35 @@
     {{- $terms := .Data.Terms.ByCount -}}
     {{- $type := .Type -}}
 
-    <div class="page archive">
+    <div class="page archive" style="padding-top: 14.6rem; display: flex; flex-direction: row;  flex-wrap: wrap; justify-content: flex-start; flex-grow: 1; float: left;">
         {{- /* Title */ -}}
+<div class="toc" id="toc-auto" style="visibility: visible; top: 31.4rem; min-width: 20vw; left: 22vw; position: absolute">
+  <h2 class="toc-title">{{ T "filter" }}</h2>
+<div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></li>
+    <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></li>
+  </ul>
+</nav></div>
+
+</div>
+
+    <img src="{{ .Site.BaseURL }}lib/img/event_header.jpg" style="width: 100%">
+
+    <div class="event-list" style="padding-left: 20%">
+    {{- /* Title */ -}}
+
+
+
         <h2 class="single-title animated pulse faster">
-            {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}
+            {{ T $taxonomies (dict "Count" 2) }}
         </h2>
 
         {{- /* Categories Page */ -}}
-        {{- if eq $taxonomies "genres" -}}
-            <div class="categories-card">
-                {{- range $terms -}}
-                    {{- $term := .Term -}}
-                    {{- $pages := .Pages -}}
-                    {{- with $.Site.GetPage "taxonomy" (printf "%v/%v" $type $term) -}}
-                    <div class="card-item">
-                        <div class="card-item-wrapper">
-                            <h3 class="card-item-title">
-                                <a href="{{ .RelPermalink }}">
-                                    <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }}
-                                </a>
-                            </h3>
-                            {{- range first 5 $pages -}}
-                                <article class="archive-item">
-                                    <a href="{{ .RelPermalink }}" class="archive-item-link">
-                                        {{- .Title -}}
-                                    </a>
-                                </article>
-                            {{- end -}}
-                            {{- if gt (len $pages) 5 -}}
-                                <span class="more-post">
-                                    <a href="{{ .RelPermalink }}" class="more-single-link">{{ T "more" }} >></a>
-                                </span>
-                            {{- end -}}
-                        </div>
-                    </div>
-                    {{- end -}}
-                {{- end -}}
-            </div>
-
-        {{- /* Tag Cloud Page */ -}}
-        {{- else if eq $taxonomies "organizers" -}}
             <div class="tag-cloud-tags">
-                {{- range $.Site.Taxonomies.genres.ByCount -}}
-                    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a>
-                {{- end -}}
+		{{- with  (index $.Site.Taxonomies $taxonomies) }}{{ range .ByCount }}
+                    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a><br/>
+                {{ end }}{{ end }}
             </div>
-        {{- end -}}
     </div>
 {{- end -}}

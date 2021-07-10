@@ -139,11 +139,13 @@ other = "Go to"
 [where]
 other = "Place"
 
-[organizer]
-other = "Organizer"
+[organizers]
+one = "Organizer"
+other = "Organizers"
 
-[genre]
-other = "Genre"
+[genres]
+one = "Genre"
+other = "Genres"
 # === posts/single.html ===
 
 # === 404.html ===

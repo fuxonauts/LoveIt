@@ -143,11 +143,13 @@ other = "Hier geht es zum"
 [where]
 other = "Ort"
 
-[organizer]
+[organizers]
+one = "Veranstalter"
 other = "Veranstalter"
 
-[genre]
-other = "Genre"
+[genres]
+one = "Genre"
+other = "Genres"
 # === posts/single.html ===
 
 # === 404.html ===
