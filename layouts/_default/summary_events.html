@@ -15,6 +15,7 @@
         {{- with .Summary -}}
             {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         {{- else -}}
+blafoo
             {{- .Description | safeHTML -}}
         {{- end -}}
 
@@ -29,7 +30,7 @@
 {{ .Params.address | safeHTML }}
 </td>
 </tr>
-<td style="border: 0; width: 10%"><b>{{ T "genre" }}:</b></td>
+<td style="border: 0; width: 10%"><b>{{ T "genres" (dict "Count" 1) }}:</b></td>
 <td style="border: 0">
 {{ range .Params.genres }}
     <a href="{{ $.Site.BaseURL }}genres/{{ . | urlize | safeHTML }}">{{ . }}</a>
