@@ -150,6 +150,10 @@ other = "Veranstalter"
 [genres]
 one = "Genre"
 other = "Genres"
+
+[bytime]
+other = "Zeitplan"
+
 # === posts/single.html ===
 
 # === 404.html ===

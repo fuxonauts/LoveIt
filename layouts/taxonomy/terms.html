@@ -13,8 +13,9 @@
   <h2 class="toc-title">{{ T "filter" }}</h2>
 <div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
   <ul>
-    <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></li>
-    <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></li>
+    {{ if (ne .Data.Plural "genres") }}<li><a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></li>{{ end }}
+    {{ if (ne .Data.Plural "organizers") }}<li><a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></li>{{ end }}
+    <li><a href="{{ with .Site.GetPage "/events" }}{{ .Permalink }}{{ end }}">{{ T "bytime" }}</a></li>
   </ul>
 </nav></div>
 

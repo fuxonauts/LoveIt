@@ -146,6 +146,9 @@ other = "Organizers"
 [genres]
 one = "Genre"
 other = "Genres"
+
+[bytime]
+other = "Time Table"
 # === posts/single.html ===
 
 # === 404.html ===
