@@ -18,7 +18,7 @@
 
         {{- /* Paginate */ -}}
         {{- if .Pages -}}
-            {{- $pages := .Pages.GroupByDate "2006" -}}
+            {{- $pages := .Pages.GroupByDate "2006-01-02" -}}
             {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
                 {{- $pages = $.Paginate $pages . -}}
             {{- else -}}

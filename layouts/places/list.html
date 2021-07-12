@@ -9,9 +9,9 @@
     {{- $profile := .Site.Params.home.profile -}}
     {{- $posts := .Site.Params.home.posts -}}
 
-    <div class="page home" places>
+    <div class="page home" places style="padding-left: 1rem; padding-right: 1rem;">
     {{- /* Title */ -}}
-    <h2 class="single-title" itemprop="name headline">
+    <h2 class="single-title" itemprop="name headline" style="width: 100%">
         {{ with (index .Site.Menus.main 2) }}{{ .Name }}{{ end }}
     </h2>
 
