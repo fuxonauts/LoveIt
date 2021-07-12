@@ -1,4 +1,12 @@
 .home {
+  .extra-marker-circle-green-light {
+        display: none;
+  }
+
+  .extra-marker-circle-red {
+        display: none;
+  }
+
   .home-profile {
     @include transform(translateY( 16vh));
     padding: 0 0 .5rem;
