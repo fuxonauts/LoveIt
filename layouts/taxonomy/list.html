@@ -18,6 +18,7 @@
 
     <img src="{{ .Site.BaseURL }}lib/img/event_header.jpg" style="width: 100%">
 
+    <div class="event-list" style="padding-left: 20%">
         {{- /* Title */ -}}
         <h2 class="single-title animated pulse faster">
                 {{- printf "%v" .Title -}}
@@ -26,26 +27,17 @@
 
         {{- /* Paginate */ -}}
         {{- if .Pages -}}
-            {{- $pages := .Pages.GroupByDate "2006-01-02" -}}
+            {{- $pages := .Pages -}}
             {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
                 {{- $pages = $.Paginate $pages . -}}
             {{- else -}}
                 {{- $pages = .Paginate $pages -}}
             {{- end -}}
-            {{- range $pages.PageGroups -}}
-                <h3 class="group-title">{{ .Key }}</h3>
                 {{- range .Pages -}}
-                    <article class="archive-item">
-                        <a href="{{ .RelPermalink }}" class="archive-item-link">
-                            {{- .Title -}}
-                        </a>
-                        <span class="archive-item-date">
-                            {{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}
-                        </span>
-                    </article>
+                    {{- .Render "summary_events" -}}
                 {{- end -}}
-            {{- end -}}
             {{- partial "paginator.html" . -}}
         {{- end -}}
+    </div>
     </div>
 {{- end -}}
