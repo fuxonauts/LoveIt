@@ -89,7 +89,7 @@
 
         {{- /* Content */ -}}
 
-<div id='mapid_{{ $.Page.Params.title }}' class="leaflet-map" style='width: 100%; height: 500px;'></div>
+<div id='mapid_{{ $.Page.Params.title }}' class="leaflet-map" style='width: 90%; height: 500px; margin: auto'></div>
 
 <script>
     //Create Map
@@ -135,7 +135,7 @@
     drawTrack(trackOpts, elevationOpts, markerOpts);
 </script>
 
-<div class="download-track" onclick="downloadFile('{{ "gpx" | absURL }}/{{ $.Page.Params.gpx }}');"><p class="download-track-link">Download</p></div>
+<div class="download-track" style="width: 90%; margin: auto" onclick="downloadFile('{{ "gpx" | absURL }}/{{ $.Page.Params.gpx }}');"><p class="download-track-link">Download</p></div>
 
 
         <div class="content" id="content">
