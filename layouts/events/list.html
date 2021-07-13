@@ -20,7 +20,7 @@
 
     <img src="{{ .Site.BaseURL }}lib/img/event_header.jpg" style="width: 100%">
 
-    <div class="event-list" style="padding-left: 20%">
+    <div class="event-list">
     {{- /* Title */ -}}
     <h2 class="single-title" itemprop="name headline">
         {{ with (index .Site.Menus.main 1) }}{{ .Title }}{{ end }}
