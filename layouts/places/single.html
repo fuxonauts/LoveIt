@@ -1,3 +1,27 @@
+{{- define "logo-at-left" -}}
+<div class="image-at-left" style="height: 100%; width: 20%; position: fixed; z-index: 1; top: 0; left: 0; padding-top: 14.6rem; padding-left: 2vw">
+  {{ range $i, $p := .Params.images }}
+    {{if not (modBool $i 2)}}
+      <div style="width: 17vw; padding-bottom: 20px">
+        {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+      </div>       
+    {{end}}
+  {{end}}
+</div>
+{{ end }}
+
+{{- define "logo-at-right" -}}
+<div class="image-at-right" style="height: 100%; width: 20%; position: fixed; z-index: 1; top: 0; right: 0; padding-top: 14.6rem; padding-left: 2vw">
+  {{ range $i, $p := .Params.images }}
+    {{if (modBool $i 2)}}
+      <div style="width: 17vw; padding-bottom: 20px">
+        {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+      </div>       
+    {{end}}
+  {{end}}
+</div>
+{{ end }}
+
 {{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
 
 {{- define "content" -}}
@@ -10,88 +34,35 @@
         {{- $toc = dict "enable" false -}}
     {{- end -}}
 
-    {{- /* Auto TOC */ -}}
-    {{- if ne $toc.enable false -}}
-        <div class="toc" id="toc-auto">
-            <h2 class="toc-title">{{ T "contents" }}</h2>
-            <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
-        </div>
-    {{- end -}}
-
-    <article class="page single">
+    <article class="page single" style="padding-top: 14.6rem;">
+      <div class="left-menu-space">
         {{- /* Title */ -}}
         <h1 class="single-title animated flipInX">{{ .Title }}</h1>
 
-        {{- /* Subtitle */ -}}
-        {{- with $params.subtitle -}}
-            <h2 class="single-subtitle">{{ . }}</h2>
-        {{- end -}}
+<div id="toc-large" style="visibility: visible; top: 18.4rem; width: 7vw; left: 21vw; position: absolute; text-align: right">
+    {{- .Params.street -}}</br>
+    {{- .Params.city -}}</br>
+    {{- .Params.tel -}}</br>
+</div>
 
-        {{- /* Meta */ -}}
-        <div class="post-meta">
-            <div class="post-meta-line">
-                {{- $author := $params.author | default .Site.Author.name | default (T "author") -}}
-                {{- $authorLink := $params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
-                <span class="post-author">
-                    {{- $options := dict "Class" "author" "Destination" $authorLink "Title" "Author" "Rel" "author" "Icon" (dict "Class" "fas fa-user-circle fa-fw") "Content" $author -}}
-                    {{- partial "plugin/link.html" $options -}}
-                </span>
-
-                {{- $categories := slice -}}
-                {{- range .Params.categories -}}
-                    {{- $category := partialCached "function/path.html" . . | printf "/categories/%v" | $.Site.GetPage -}}
-                    {{- $categories = $categories | append (printf `<a href="%v"><i class="far fa-folder fa-fw"></i>%v</a>` $category.RelPermalink $category.Title) -}}
-                {{- end -}}
-                {{- with delimit $categories "&nbsp;" -}}
-                    &nbsp;<span class="post-category">
-                        {{- dict "Categories" . | T "includedInCategories" | safeHTML -}}
-                    </span>
-                {{- end -}}
-            </div>
-            <div class="post-meta-line">
-                {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
-                    <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
-                {{- end -}}
-                <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
-                {{- $comment := .Scratch.Get "comment" | default dict -}}
-                {{- if $comment.enable | and $comment.valine.enable | and $comment.valine.visitor -}}
-                    <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
-                    </span>&nbsp;
-                {{- end -}}
-            </div>
-        </div>
-
-        {{- /* Featured image */ -}}
-        {{- $image := $params.featuredimage -}}
-        {{- with .Resources.GetMatch "featured-image" -}}
-            {{- $image = .RelPermalink -}}
-        {{- end -}}
-        {{- with $image -}}
-            <div class="featured-image">
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
-            </div>
-        {{- end -}}
-
-        {{- /* Static TOC */ -}}
-        {{- if ne $toc.enable false -}}
-            <div class="details toc" id="toc-static"  kept="{{ if $toc.keepStatic }}true{{ end }}">
-                <div class="details-summary toc-title">
-                    <span>{{ T "contents" }}</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static">
-                    {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
-                </div>
-            </div>
-        {{- end -}}
+<div id="toc-small">
+    {{ .Params.street }}, {{ .Params.city }}, {{ .Params.tel }}
+</div>
 
         {{- /* Content */ -}}
         <div class="content" id="content">
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
 
+<div id="toc-small">
+  {{ range .Params.images }}
+      <div style="padding-bottom: 20px">
+        {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+      </div>
+  {{end}}
+</div>
+
+        </div>
         {{- /* Footer */ -}}
         {{- partial "single/footer.html" . -}}
 

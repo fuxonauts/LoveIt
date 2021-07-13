@@ -5,21 +5,19 @@
 {{- define "content" -}}
     <div class="page home" events style="padding-top: 14.6rem">
 
-<div class="toc" id="toc-auto" style="visibility: visible; top: 31.4rem; min-width: 20vw; left: 22vw; position: absolute">
+<div class="toc" id="toc-large" style="visibility: visible; top: 31.4rem; width: 7vw; left: 22vw; position: absolute; text-align: right">
   <h2 class="toc-title">{{ T "filter" }}</h2>
-<div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
-  <ul>
-        {{ if (ne .Data.Plural "genres") }}<li><a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></li>{{ end }}
-        {{ if (ne .Data.Plural "organizers") }}<li><a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></li>{{ end }}
-        <li><a href="{{ with .Site.GetPage "/events" }}{{ .Permalink }}{{ end }}">{{ T "bytime" }}</a></li>
-  </ul>
+<div id="toc-content-auto"><nav id="TableOfContents">
+        {{ if (ne .Data.Plural "genres") }}<a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></br>{{ end }}
+        {{ if (ne .Data.Plural "organizers") }}<a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></br>{{ end }}
+        <a href="{{ with .Site.GetPage "/events" }}{{ .Permalink }}{{ end }}">{{ T "bytime" }}</a>
 </nav></div>
 
 </div>
 
     <img src="{{ .Site.BaseURL }}lib/img/event_header.jpg" style="width: 100%">
 
-    <div class="event-list" style="padding-left: 20%">
+    <div class="event-list left-menu-space">
         {{- /* Title */ -}}
         <h2 class="single-title animated pulse faster">
                 {{- printf "%v" .Title -}}

@@ -7,6 +7,14 @@
     display: none;
   }
 
+  .image-at-right {
+    display: none;
+  }
+
+  .image-at-left {
+    display: none;
+  }
+
   .page {
     padding-left: 0;
     padding-right: 0;
@@ -48,7 +56,7 @@
     display: none;
   }
 
-  .event-list {
+  .left-menu-space {
     padding-left: 20%;
   }
 }
@@ -62,7 +70,15 @@
     display: none;
   }
 
-  #toc-auto {
+  .image-at-right {
+    display: none;
+  }
+
+  .image-at-left {
+    display: none;
+  }
+
+  #toc-large {
     display: none;
   }
 
@@ -87,6 +103,14 @@
   }
 
   .logo-at-left {
+    display: none;
+  }
+
+  .image-at-right {
+    display: none;
+  }
+
+  .image-at-left {
     display: none;
   }
 

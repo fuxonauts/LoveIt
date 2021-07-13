@@ -1,5 +1,9 @@
 @import "../_partial/_single/toc";
 
+img.lazyloaded {
+  width: 100%;
+}
+
 .single {
   .single-title {
     margin: 1rem 0 .5rem;
@@ -46,9 +50,6 @@
       overflow: hidden;
     }
 
-    img.lazyloaded {
-      width: 100%;
-    }
   }
 
   .content {
