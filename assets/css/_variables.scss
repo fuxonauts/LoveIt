@@ -4,7 +4,25 @@
 
 // ========== Global ========== //
 // Font and Line Height
-$global-font-family: system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif !default;
+
+@font-face {
+  font-family: 'CeraCondensed-Pro';
+  src: url('../lib/fonts/CeraCondensed-pro-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'CeraCondensed-Pro';
+  src: url('../lib/fonts/CeraCondensed-pro-Bold.woff2') format('woff2');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'CeraCondensed-Pro';
+  src: url('../lib/fonts/CeraCondensed-pro-RegularItalic.woff2') format('woff2');
+  font-style: italic;
+}
+
+$global-font-family: CeraCondensed-Pro, system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif !default;
 $global-font-size: 16px;
 $global-font-weight: 400;
 $global-line-height: 1.5rem;
