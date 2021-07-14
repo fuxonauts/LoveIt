@@ -10,7 +10,8 @@ header {
 
   .logo {
     min-height: 1.5em;
-    height: 1.5em;
+    height: $header-height - 1rem;
+    padding-top: 0.5rem;
     vertical-align: text-bottom;
     width: auto;
   }
@@ -31,7 +32,7 @@ header {
 .header-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: top;
   box-sizing: border-box;
   width: 100%;
 }
@@ -150,7 +151,8 @@ header {
   display: block;
   position: fixed;
   height: $header-height;
-  line-height: $header-height;
+/*  line-height: $header-height;*/
+  line-height: 3.5rem;
 
   [header-desktop=normal] & {
     position: static;
