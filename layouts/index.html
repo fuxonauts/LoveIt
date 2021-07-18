@@ -18,6 +18,9 @@
             </div>
         {{- end -}}
 
+
+        {{ readFile (printf "pre_%s.md" .Language.LanguageName) | markdownify }}
+
         {{- /* Posts */ -}}
         {{- if ne $posts.enable false | and .Site.RegularPages -}}
             {{- /* Paginate */ -}}
@@ -37,5 +40,7 @@
             {{- end -}}
             {{- partial "paginator.html" . -}}
         {{- end -}}
+
+        {{ readFile (printf "post_%s.md" .Language.LanguageName) | markdownify }}
     </div>
 {{- end -}}
