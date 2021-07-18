@@ -31,6 +31,7 @@
         {{- end -}}
     </div>
 
+{{- if isset .Params "gpx" -}}
 <div id='mapid_{{ $.Page.Params.title }}' class="leaflet-map" style='width: 90%; height: 500px; margin: auto'></div>
 
 <script>
@@ -78,6 +79,7 @@
 </script>
 
 <div class="download-track" style="width: 90%; margin: auto;" onclick="downloadFile('{{ "gpx" | absURL }}/{{ $.Page.Params.gpx }}');"><span class="download-track-link">Download GPX Track</span></div>
+{{- end -}}
 
     {{- /* Footer */ -}}
     <div class="post-footer">
