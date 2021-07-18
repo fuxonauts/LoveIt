@@ -241,6 +241,7 @@ header {
         line-height: 4rem;
         cursor: pointer;
         @include transition(width 0.3s ease);
+        padding-top: 1rem;
 
         span {
           display: block;
