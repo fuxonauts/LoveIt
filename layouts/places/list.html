@@ -18,7 +18,11 @@ shuffleChildren = function() {
     document.querySelectorAll('.shuffle').forEach(function(el) {
         var children = Array.prototype.slice.call(el.children, 0);
         children.sort(function() { return 0.5 - Math.random(); });
-        el.childNodes.forEach( function(node) { node.remove(); });
+        el.childNodes.forEach( function(node) {
+            if (!item.classList.contains('summary')) {
+                node.remove();
+            };
+        });
         children.forEach(function(item) {
             if (item.classList.contains('summary')) {
                 el.appendChild(item);
@@ -35,7 +39,7 @@ shuffleChildren();
     <div class="page home shuffle" places style="padding-left: 1rem; padding-right: 1rem; justify-content: center;">
     {{- /* Title */ -}}
     <h2 class="single-title" itemprop="name headline" style="width: 100%">
-        {{ with (index .Site.Menus.main 2) }}{{ .Name }}{{ end }}
+        {{ with (index .Site.Menus.main 1) }}{{ .Name }}{{ end }}
     </h2>
 
 
