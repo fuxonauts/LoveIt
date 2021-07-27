@@ -13,12 +13,13 @@
             {{ .Title }}
         </a>
     </h2>
-
+    <div class="content">
         {{- with .Summary -}}
             {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         {{- else -}}
             {{- .Description | safeHTML -}}
         {{- end -}}
+    </div>
 
 <table>
 <tbody>
