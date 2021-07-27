@@ -9,7 +9,9 @@
 
     {{- /* Title */ -}}
     <h2 class="single-title" itemprop="name headline">
-        {{ .Title }}
+        <a href="{{ $.RelPermalink }}">
+            {{ .Title }}
+        </a>
     </h2>
 
         {{- with .Summary -}}
@@ -25,7 +27,8 @@
 <td style="border: 0">
 {{ range .Params.organizers }}
     <a href="{{ $.Site.BaseURL }}organizers/{{ . | urlize | safeHTML }}">{{ . }}</a>
-{{ end }}, 
+{{- end -}}, 
+{{ .Params.street | safeHTML }},
 {{ .Params.address | safeHTML }}
 </td>
 </tr>
