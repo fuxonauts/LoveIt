@@ -143,6 +143,9 @@ other = "Hier geht es zum"
 [where]
 other = "Ort"
 
+[when]
+other = "Wann"
+
 [organizers]
 one = "Veranstalter"
 other = "Veranstalter"
@@ -150,6 +153,10 @@ other = "Veranstalter"
 [genres]
 one = "Genre"
 other = "Genres"
+
+[artists]
+one = "Künstler*in"
+other = "Künstler*innen"
 
 [bytime]
 other = "Zeitplan"

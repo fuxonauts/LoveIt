@@ -5,7 +5,7 @@
 
     <div class="page home" events>
 
-<div class="toc" id="toc-large" style="visibility: visible; top: 18.4rem; width: 7vw; left: 22vw; position: absolute; text-align: right">
+<div class="toc" id="toc-large" style="visibility: visible; top: 3.5rem; width: 7vw; left: 22vw; position: absolute; text-align: right">
   <h2 class="toc-title">{{ T "filter" }}</h2>
   <div id="toc-content-auto">
     <nav id="TableOfContents">
@@ -18,9 +18,9 @@
 
     <div class="event-list left-menu-space">
     {{- /* Title */ -}}
-    <h2 class="single-title" itemprop="name headline">
+    <h1 class="single-title" itemprop="name headline">
         {{ with (index .Site.Menus.main 1) }}{{ .Title }}{{ end }}
-    </h2>
+    </h1>
 
 <div class="toc" id="toc-small">
   <h3 style="float: left">{{ T "filter" }}</h3>

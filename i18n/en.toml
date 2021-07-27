@@ -139,6 +139,9 @@ other = "Go to"
 [where]
 other = "Place"
 
+[when]
+other = "When"
+
 [organizers]
 one = "Organizer"
 other = "Organizers"
@@ -146,6 +149,10 @@ other = "Organizers"
 [genres]
 one = "Genre"
 other = "Genres"
+
+[artists]
+one = "Artist"
+other = "Artists"
 
 [bytime]
 other = "Time Table"

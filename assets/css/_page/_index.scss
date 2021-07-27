@@ -2,9 +2,9 @@
   position: relative;
   margin: 0 auto;
 
-  [header-desktop] & {
+/*  [header-desktop] & {
     padding-top: $header-height;
-  }
+  }*/
 
   [header-desktop=normal] & {
     padding-top: 0;

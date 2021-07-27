@@ -3,9 +3,9 @@
 {{- end -}}
 
 {{- define "content" -}}
-    <div class="page home" events style="padding-top: 14.6rem">
+    <div class="page home" events>
 
-<div class="toc" id="toc-large" style="visibility: visible; top: 18.4rem; width: 7vw; left: 22vw; position: absolute; text-align: right">
+<div class="toc" id="toc-large" style="visibility: visible; top: 3.5rem; width: 7vw; left: 22vw; position: absolute; text-align: right">
   <h2 class="toc-title">{{ T "filter" }}</h2>
 <div id="toc-content-auto"><nav id="TableOfContents">
         {{ if (ne .Data.Plural "genres") }}<a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></br>{{ end }}
