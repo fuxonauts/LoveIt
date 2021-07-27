@@ -98,26 +98,6 @@ img.lazyloaded {
       }
     }
 
-    > h2,
-    > h3,
-    > h4,
-    > h5,
-    > h6 {
-      > .header-mark::before {
-        content: "|";
-        margin-right: .3125rem;
-        color: $single-link-color;
-
-        [theme=dark] & {
-          color: $single-link-color-dark;
-        }
-      }
-    }
-
-    > h2 > .header-mark::before {
-      content: "#";
-    }
-
     p {
       margin: .5rem 0;
     }
