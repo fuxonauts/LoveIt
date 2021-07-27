@@ -378,11 +378,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
       @include overflow-wrap(break-word);
-      color: $global-font-secondary-color;
-
-      [theme=dark] & {
-        color: $global-font-secondary-color-dark;
-      }
 
       h2,
       h3,
