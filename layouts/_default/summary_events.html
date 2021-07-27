@@ -4,7 +4,7 @@
     {{- /* Summary content */ -}}
     <div class="content" style="float: left; width: 80%">
     <h1 class="single-title" itemprop="name headline">
-        {{ .Date.Format "02.01.2006, 15:04" }}
+        {{ .Date.Format "02.01.2006, 15:04" }} - {{ dateFormat "15:04" .Params.end }}
     </h1>
 
     {{- /* Title */ -}}
@@ -36,9 +36,9 @@
 </tr>
 <td style="border: 0; width: 10%"><b>{{ T "genres" (dict "Count" 1) }}:</b></td>
 <td style="border: 0">
-{{ range .Params.genres }}
-    <a href="{{ $.Site.BaseURL }}genres/{{ . | urlize | safeHTML }}">{{ . }}</a>
-{{ end }}
+{{ range $key, $value := .Params.genres }}
+    {{- if $key -}}, {{ end }}<a href="{{ $.Site.BaseURL }}genres/{{ $value | urlize | safeHTML }}">{{- $value -}}</a>
+{{- end -}}
 </td>
 </tr>
 {{ end }}
