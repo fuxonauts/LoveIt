@@ -49,7 +49,29 @@
 <tr>
 <td style="border: 0; width: 10%"><b>{{ T "artists" (dict "Count" 2) }}:</b></td>
 <td style="border: 0">
-    {{ .Params.artists | safeHTML }},
+    {{ .Params.artists | safeHTML }}
+</td>
+</tr>
+{{ end }}
+{{ if .Params.repeats }}
+<tr>
+<td style="border: 0; width: 10%"><b>{{ T "repeats" (dict "Count" 2) }}:</b></td>
+<td style="border: 0">
+{{ $params := .Params }}
+{{ range $key, $value := .Params.repeats }}
+    {{- if $key -}}, {{ end }}<a href="{{ $.Site.BaseURL }}events/{{ $value | urlize | safeHTML }}">{{- index $params.repeat_times $key | dateFormat "02.01.2006 15:04" -}}</a>
+{{- end -}}
+</td>
+</tr>
+{{ end }}
+{{ if .Params.sequels }}
+<tr>
+<td style="border: 0; width: 10%"><b>{{ T "sequels" (dict "Count" 2) }}:</b></td>
+<td style="border: 0">
+{{ $params := .Params }}
+{{ range $key, $value := .Params.sequels }}
+    {{- if $key -}}, {{ end }}<a href="{{ $.Site.BaseURL }}events/{{ $value | urlize | safeHTML }}">{{- index $params.sequel_times $key | dateFormat "02.01.2006 15:04" -}}</a>
+{{- end -}}
 </td>
 </tr>
 {{ end }}
