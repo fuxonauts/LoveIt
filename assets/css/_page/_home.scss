@@ -305,6 +305,10 @@
   }
 }
 
+h1 {
+  line-height: 140%;
+}
+
 .home[events] {
   .home-profile {
     @include transform(translateY(0));
@@ -362,12 +366,6 @@
       &:hover {
         @include transform(scale(1.01));
       }
-    }
-
-    .single-title {
-      font-size: 1.25rem;
-      line-height: 140%;
-      margin: 0.4rem 0;
     }
 
     .content {
