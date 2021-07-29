@@ -36,16 +36,9 @@
 
         {{- /* Paginate */ -}}
         {{- if .Pages -}}
-            {{- $pages := .Pages -}}
-            {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
-                {{- $pages = $.Paginate $pages . -}}
-            {{- else -}}
-                {{- $pages = .Paginate $pages -}}
-            {{- end -}}
                 {{- range .Pages -}}
                     {{- .Render "summary_events" -}}
                 {{- end -}}
-            {{- partial "paginator.html" . -}}
         {{- end -}}
     </div>
     </div>
