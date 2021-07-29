@@ -36,7 +36,7 @@
 
         {{- /* Paginate */ -}}
         {{- if .Pages -}}
-                {{- range .Pages -}}
+                {{- range .Pages.Reverse -}}
                     {{- .Render "summary_events" -}}
                 {{- end -}}
         {{- end -}}
