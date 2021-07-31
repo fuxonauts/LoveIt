@@ -49,7 +49,9 @@
 <tr>
 <td style="border: 0; width: 10%"><b>{{ T "artists" (dict "Count" 2) }}:</b></td>
 <td style="border: 0">
-    {{ .Params.artists | safeHTML }}
+{{ range $key, $value := .Params.artists }}
+    {{- if $key -}}, {{ end }}{{ $value | safeHTML }}
+{{- end -}}
 </td>
 </tr>
 {{ end }}
