@@ -14,6 +14,7 @@
         <script>
             //Marker
             var marker = L.marker([{{ $markerLat }}, {{ $markerLon }}]).addTo(leafletMapsObj[{{ $mapId }}]);
+            marker.desc = "{{ $markerContent }}";
             leafletOmsObj[{{ $mapId }}].addMarker(marker);
             leafletMarkersObj[{{ $markerId }}] = marker;
 
