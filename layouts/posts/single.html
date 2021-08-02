@@ -25,56 +25,6 @@
 
         {{- /* Content */ -}}
 
-{{- if isset .Params "gpx" -}}
-<div id='mapid_{{ $.Page.Params.title }}' class="leaflet-map" style='width: 90%; height: 500px; margin: auto'></div>
-
-<script>
-    //Create Map
-    leafletMapsObj[{{ $.Page.Params.title }}] = L.map('mapid_{{ $.Page.Params.title }}').setView(["", ""], 13);
-    //Add tiles
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(leafletMapsObj[{{ $.Page.Params.title }}]);
-
-</script>
-<script>
-    trackOpts = {
-        mapId: "{{ $.Page.Params.title }}",
-        trackId: "{{ $.Page.Params.title }}",
-        trackPath: '{{ "gpx" | absURL }}/{{$.Page.Params.gpx}}',
-        lineColor: "#3796bf",
-        lineWeight: "5",
-        lineOpacity: "1"
-    };
-    elevationOpts = {
-        graphPosition: "topright",
-        graphTheme: "steelblue-theme",
-        graphWidth: "500",
-        graphHeight: "150",
-        graphFollowMarker: false,
-        graphCollapsed: true,
-        graphDetached: false
-    };
-    markerOpts = {
-        icon: "fa-thumb-tack",
-        iconColor: "cyan",
-        iconShape: "penta",
-        iconClasses: "fa-icon-marker",
-        iconStart: "fa-play",
-        iconStartColor: "green-light",
-        iconStartShape: "circle",
-        iconStartClasses: "fa-icon-marker fa-icon-start-stop",
-        iconEnd: "fa-flag-checkered",
-        iconEndColor: "red",
-        iconEndShape: "circle",
-        iconEndClasses: "fa-icon-marker fa-icon-start-stop"
-    };
-    drawTrack(trackOpts, elevationOpts, markerOpts);
-</script>
-
-<div class="download-track" style="width: 90%; margin: auto" onclick="downloadFile('{{ "gpx" | absURL }}/{{ $.Page.Params.gpx }}');"><span class="download-track-link">Download GPX Track</span></div>
-{{- end -}}
-
         <div class="content" id="content">
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
