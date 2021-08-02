@@ -20,6 +20,11 @@
 {{ $leafletExtra := resources.Get "js/leaflet.extra-markers.min.js" }}
 <script src="{{ $leafletExtra.Permalink }}"></script>
 
+<!-- Spiderfier -->
+{{ $leafletSpider := resources.Get "js/oms.min.js" }}
+<script src="{{ $leafletSpider.Permalink }}"></script>
+
+
 <style>
     .fa-icon-marker {
         text-align: center;

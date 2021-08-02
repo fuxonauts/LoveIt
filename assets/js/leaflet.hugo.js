@@ -1,4 +1,5 @@
 let leafletMapsObj = {};
+let leafletOmsObj = {};
 let leafletMarkersObj = {};
 
 function drawTrack(trackOpts, elevationOpts, markerOpts) {

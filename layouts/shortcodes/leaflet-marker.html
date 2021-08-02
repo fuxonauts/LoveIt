@@ -13,11 +13,13 @@
 
         <script>
             //Marker
-            leafletMarkersObj[{{ $markerId }}] = L.marker([{{ $markerLat }}, {{ $markerLon }}]).addTo(leafletMapsObj[{{ $mapId }}]);
+            var marker = L.marker([{{ $markerLat }}, {{ $markerLon }}]).addTo(leafletMapsObj[{{ $mapId }}]);
+            leafletOmsObj[{{ $mapId }}].addMarker(marker);
+            leafletMarkersObj[{{ $markerId }}] = marker;
 
-            {{ if $markerContent }}
+/*            {{ if $markerContent }}
                 leafletMarkersObj[{{ $markerId }}].bindPopup("{{ $markerContent }}").openPopup();
-            {{ end }}
+            {{ end }}*/
         </script>
 
     {{ else }}
