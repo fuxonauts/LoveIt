@@ -13,27 +13,25 @@
 
 <script>
     //Create Map
-    map = L.map('mapid_{{ $mapId }}').setView([{{ $mapLat }}, {{ $mapLon }}], {{ $zoom }});
-    leafletMapsObj[{{ $mapId }}] = map;
+    leafletMapsObj[{{ $mapId }}] = L.map('mapid_{{ $mapId }}').setView([{{ $mapLat }}, {{ $mapLon }}], {{ $zoom }});
 
-    oms = new OverlappingMarkerSpiderfier(map);
-    leafletOmsObj[{{ $mapId }}] = oms;
+    leafletOmsObj[{{ $mapId }}] = new OverlappingMarkerSpiderfier(leafletMapsObj[{{ $mapId }}]);
 
-    var popup = new L.Popup();
-        oms.addListener('click', function(marker) {
+    leafletPopupObj[{{ $mapId }}] = new L.Popup();
+    leafletOmsObj[{{ $mapId }}].addListener('click', function(marker) {
+        let popup = leafletPopupObj[{{ $mapId }}];
         popup.setContent(marker.desc);
         popup.setLatLng(marker.getLatLng());
-        map.openPopup(popup);
+        leafletMapsObj[{{ $mapId }}].openPopup(popup);
     });
 
     {{ if eq $scrollWheelZoom "false" }}
         leafletMapsObj[{{ $mapId }}].scrollWheelZoom.disable();
     {{ end }}
     //Add tiles
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(leafletMapsObj[{{ $mapId }}]);
-
 </script>
 {{.Inner}}
 
