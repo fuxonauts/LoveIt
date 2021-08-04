@@ -21,6 +21,9 @@
 
         {{ readFile (printf "pre_%s.md" .Language.LanguageName) | markdownify }}
 
+        <a class="show_old" href="javascript:void(0)" onclick="show_old_events()">{{- T "show_old_events" -}}</a>
+        <a class="hide_old" href="javascript:void(0)" onclick="hide_old_events()">{{- T "hide_old_events" -}}</a>
+
         {{- /* Posts */ -}}
         {{- if ne $posts.enable false | and .Site.RegularPages -}}
             {{- /* Paginate */ -}}
@@ -43,4 +46,24 @@
 
         {{ readFile (printf "post_%s.md" .Language.LanguageName) | markdownify }}
     </div>
+
+<script>
+function hide_old_events() {
+    const seconds_now = Math.floor(Date.now() / 1000);
+    var articles = document.getElementsByTagName('article');
+    var articlesList = Array.prototype.slice.call(articles);
+    articlesList.forEach(art => {if (art.getAttribute('time') < seconds_now) art.style.display='none'});
+    document.getElementsByClassName('show_old')[0].style.display='block';
+    document.getElementsByClassName('hide_old')[0].style.display='none';
+}
+hide_old_events();
+
+function show_old_events() {
+    var articles = document.getElementsByTagName('article');
+    var articlesList = Array.prototype.slice.call(articles);
+    articlesList.forEach(art => art.style.display='block');
+    document.getElementsByClassName('show_old')[0].style.display='none';
+    document.getElementsByClassName('hide_old')[0].style.display='block';
+}
+</script>
 {{- end -}}
