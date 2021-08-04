@@ -231,3 +231,9 @@ other = "Wiederholungen"
 
 [sequels]
 other = "Fortsetzungen"
+
+[show_old_events]
+other = "Vergangene Veranstaltungen einblenden"
+
+[hide_old_events]
+other = "Vergangene Veranstaltungen ausblenden"

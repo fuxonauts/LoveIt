@@ -1,6 +1,6 @@
 {{- $params := .Params | merge .Site.Params.page -}}
 
-<article class="single summary" itemscope itemtype="http://schema.org/Article">
+<article class="single summary" itemscope itemtype="http://schema.org/Article" time="{{- .Params.Date.Unix -}}">
     {{- /* Summary content */ -}}
     <div class="content" style="float: left; width: 80%">
     <h1 class="single-title" itemprop="name headline">

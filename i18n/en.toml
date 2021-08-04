@@ -226,3 +226,9 @@ other = "Repeated at"
 
 [sequels]
 other = "Continued at"
+
+[show_old_events]
+other = "Shop past events"
+
+[hide_old_events]
+other = "Hide past events"
