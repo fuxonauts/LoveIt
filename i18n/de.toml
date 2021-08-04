@@ -237,3 +237,9 @@ other = "Vergangene Veranstaltungen einblenden"
 
 [hide_old_events]
 other = "Vergangene Veranstaltungen ausblenden"
+
+[kids]
+other = "Kinder"
+
+[walks]
+other = "Rundgänge/Ausflüge"

@@ -10,6 +10,8 @@
 <div id="toc-content-auto"><nav id="TableOfContents">
         {{ if (ne .Data.Plural "genres") }}<a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></br>{{ end }}
         {{ if (ne .Data.Plural "organizers") }}<a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></br>{{ end }}
+        {{ if (ne .Data.Plural "kids") }}<a href="{{ with $.Site.GetPage "taxonomyTerm" "kids" }}{{ .Permalink }}{{ end }}">{{ T "kids" (dict "Count" 2) }}</a></br>{{ end }}
+        {{ if (ne .Data.Plural "walks") }}<a href="{{ with $.Site.GetPage "taxonomyTerm" "walks" }}{{ .Permalink }}{{ end }}">{{ T "walks" (dict "Count" 2) }}</a></br>{{ end }}
         <a href="{{ with .Site.GetPage "/events" }}{{ .Permalink }}{{ end }}">{{ T "bytime" }}</a>
 </nav></div>
 
@@ -28,6 +30,8 @@
       <ul>
         {{ if (ne .Data.Plural "genres") }}<li><a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></li>{{ end }}
         {{ if (ne .Data.Plural "organizers") }}<li><a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></li>{{ end }}
+        {{ if (ne .Data.Plural "kids") }}<li><a href="{{ with $.Site.GetPage "taxonomyTerm" "kids" }}{{ .Permalink }}{{ end }}">{{ T "kids" (dict "Count" 2) }}</a></li>{{ end }}
+        {{ if (ne .Data.Plural "walks") }}<li><a href="{{ with $.Site.GetPage "taxonomyTerm" "walks" }}{{ .Permalink }}{{ end }}">{{ T "walks" (dict "Count" 2) }}</a></li>{{ end }}
         <li><a href="{{ with .Site.GetPage "/events" }}{{ .Permalink }}{{ end }}">{{ T "bytime" }}</a></li>
       </ul>
     </nav>

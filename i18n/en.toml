@@ -232,3 +232,9 @@ other = "Shop past events"
 
 [hide_old_events]
 other = "Hide past events"
+
+[kids]
+other = "Children"
+
+[walks]
+other = "Walks/Excursions"

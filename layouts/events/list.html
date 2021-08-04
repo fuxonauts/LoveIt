@@ -11,6 +11,8 @@
     <nav id="TableOfContents">
         <a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></br>
         <a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></br>
+        <a href="{{ with $.Site.GetPage "taxonomyTerm" "kids" }}{{ .Permalink }}{{ end }}">{{ T "kids" (dict "Count" 2) }}</a></br>
+        <a href="{{ with $.Site.GetPage "taxonomyTerm" "walks" }}{{ .Permalink }}{{ end }}">{{ T "walks" (dict "Count" 2) }}</a></br>
     </nav>
   </div>
 </div>
@@ -29,6 +31,8 @@
       <ul>
         <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></li>
         <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></li>
+        <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "kids" }}{{ .Permalink }}{{ end }}">{{ T "kids" (dict "Count" 2) }}</a></li>
+        <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "walks" }}{{ .Permalink }}{{ end }}">{{ T "walks" (dict "Count" 2) }}</a></li>
       </ul>
     </nav>
   </div>
