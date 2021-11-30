@@ -21,7 +21,9 @@
     <div class="event-list left-menu-space">
     {{- /* Title */ -}}
     <h1 class="single-title" itemprop="name headline">
-        {{ with (index .Site.Menus.main 1) }}{{ .Title }}{{ end }}
+        {{ range .Site.Menus.main }}
+            {{ if eq .Identifier "event" }}{{ .Title }}{{ end }}
+        {{ end }}
     </h1>
 
 <div class="toc" id="toc-small">
@@ -38,8 +40,8 @@
   </div>
 </div>
 	
-        <a class="show_old" href="javascript:void(0)" onclick="show_old_events()">{{- T "show_old_events" -}}</a>
-        <a class="hide_old" href="javascript:void(0)" onclick="hide_old_events()">{{- T "hide_old_events" -}}</a>
+<!--        <a class="show_old" href="javascript:void(0)" onclick="show_old_events()">{{- T "show_old_events" -}}</a>
+        <a class="hide_old" href="javascript:void(0)" onclick="hide_old_events()">{{- T "hide_old_events" -}}</a>-->
 
         {{- /* Posts */ -}}
         {{- if ne $posts.enable false | and .Site.RegularPages -}}
@@ -57,6 +59,7 @@
       </div>
     </div>
 
+<!--
 <script>
 function hide_old_events() {
     const seconds_now = Math.floor(Date.now() / 1000);
@@ -76,6 +79,6 @@ function show_old_events() {
     document.getElementsByClassName('hide_old')[0].style.display='block';
 }
 </script>
-
+-->
 {{- end -}}
 

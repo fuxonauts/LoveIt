@@ -37,9 +37,10 @@ shuffleChildren();
     <div class="page home shuffle" places style="padding-left: 1rem; padding-right: 1rem; justify-content: left;">
     {{- /* Title */ -}}
     <h2 class="single-title" itemprop="name headline" style="width: 100%;padding-left: 1rem;">
-        {{ with (index .Site.Menus.main 2) }}{{ .Name }}{{ end }}
+        {{ range .Site.Menus.main }}
+            {{ if eq .Identifier "place" }}{{ .Name }}{{ end }}
+        {{ end }}
     </h2>
-
 
         {{- /* Content */ -}}
         {{- if .Content -}}
