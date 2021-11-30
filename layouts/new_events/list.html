@@ -1,0 +1,86 @@
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    {{- $profile := .Site.Params.home.profile -}}
+    {{- $posts := .Site.Params.home.posts -}}
+
+    <div class="page home" events>
+
+<!--
+<div class="toc" id="toc-large" style="visibility: visible; top: 3.5rem; width: 7vw; left: 22vw; position: absolute; text-align: right">
+  <h2 class="toc-title">{{ T "filter" }}</h2>
+  <div id="toc-content-auto">
+    <nav id="TableOfContents">
+        <a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></br>
+        <a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></br>
+        <a href="{{ with $.Site.GetPage "taxonomyTerm" "kids" }}{{ .Permalink }}{{ end }}">{{ T "kids" (dict "Count" 2) }}</a></br>
+        <a href="{{ with $.Site.GetPage "taxonomyTerm" "walks" }}{{ .Permalink }}{{ end }}">{{ T "walks" (dict "Count" 2) }}</a></br>
+    </nav>
+  </div>
+</div>
+-->
+
+
+    <div class="event-list left-menu-space">
+    {{- /* Title */ -}}
+    <h1 class="single-title" itemprop="name headline">
+        {{ range .Site.Menus.main }}
+            {{ if eq .Identifier "new_event" }}{{ .Title }}{{ end }}
+        {{ end }}
+    </h1>
+
+<!--
+<div class="toc" id="toc-small">
+  <h3 style="float: left">{{ T "filter" }}</h3>
+  <div class="toc-content" id="toc-content-auto" style="float: left; padding-left: 20px;">
+    <nav id="TableOfContents">
+      <ul>
+        <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "genres" }}{{ .Permalink }}{{ end }}">{{ T "genres" (dict "Count" 2) }}</a></li>
+        <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "organizers" }}{{ .Permalink }}{{ end }}">{{ T "organizers" (dict "Count" 2) }}</a></li>
+        <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "kids" }}{{ .Permalink }}{{ end }}">{{ T "kids" (dict "Count" 2) }}</a></li>
+        <li><a href="{{ with $.Site.GetPage "taxonomyTerm" "walks" }}{{ .Permalink }}{{ end }}">{{ T "walks" (dict "Count" 2) }}</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+-->	
+        <a class="show_old" href="javascript:void(0)" onclick="show_old_events()">{{- T "show_old_events" -}}</a>
+        <a class="hide_old" href="javascript:void(0)" onclick="hide_old_events()">{{- T "hide_old_events" -}}</a>
+
+        {{- /* Posts */ -}}
+        {{- if ne $posts.enable false | and .Site.RegularPages -}}
+            {{- /* Paginate */ -}}
+            {{- $pages := where .Site.RegularPages "Type" "new_events" -}}
+            {{- if .Site.Params.page.hiddenFromHomePage -}}
+                {{- $pages = where $pages "Params.hiddenfromhomepage" false -}}
+            {{- else -}}
+                {{- $pages = where $pages "Params.hiddenfromhomepage" "!=" true -}}
+            {{- end -}}
+            {{- range $pages.Reverse -}}
+                {{- .Render "summary_events" -}}
+            {{- end -}}
+        {{- end -}}
+      </div>
+    </div>
+
+
+<script>
+function hide_old_events() {
+    const seconds_now = Math.floor(Date.now() / 1000);
+    var articles = document.getElementsByTagName('article');
+    var articlesList = Array.prototype.slice.call(articles);
+    articlesList.forEach(art => {if (art.getAttribute('time') < seconds_now) art.style.display='none'});
+    document.getElementsByClassName('show_old')[0].style.display='block';
+    document.getElementsByClassName('hide_old')[0].style.display='none';
+}
+hide_old_events();
+
+function show_old_events() {
+    var articles = document.getElementsByTagName('article');
+    var articlesList = Array.prototype.slice.call(articles);
+    articlesList.forEach(art => art.style.display='block');
+    document.getElementsByClassName('show_old')[0].style.display='none';
+    document.getElementsByClassName('hide_old')[0].style.display='block';
+}
+</script>
+{{- end -}}
+

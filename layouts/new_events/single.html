@@ -1,0 +1,87 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    <div class="page single special">
+        {{- /* Title */ -}}
+        <h1 class="title animated pulse faster">
+            {{- .Title -}}
+        </h1>
+        {{- /* Subtitle */ -}}
+        {{- with $params.subtitle -}}
+            <h2 class="subtitle">{{ . }}</h2>
+        {{- end -}}
+
+        {{- /* Content */ -}}
+        <div class="content" id="content">
+            {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+        </div>
+
+<table>
+<tbody>
+<tr>
+<td style="border: 0; width: 10%"><b>{{ T "where" }}:</b></td>
+<td style="border: 0">
+{{ range .Params.organizers }}
+    <a href="{{ $.Site.BaseURL }}organizers/{{ . | urlize | safeHTML }}">{{ . }}</a>
+{{- end -}},
+{{ .Params.street | safeHTML }},
+{{ .Params.address | safeHTML }}
+</td>
+</tr>
+<tr>
+<td style="border: 0; width: 10%"><b>{{ T "when" }}:</b></td>
+<td style="border: 0">
+{{ dateFormat "02.01.2006 15:04" .Params.date }} - {{ dateFormat "15:04" .Params.end }}
+</td>
+</tr>
+{{ if .Params.genres }}
+<tr>
+<td style="border: 0; width: 10%"><b>{{ T "genres" (dict "Count" 1) }}:</b></td>
+<td style="border: 0">
+{{ range $key, $value := .Params.genres }}
+    {{- if $key -}}, {{ end }}<a href="{{ $.Site.BaseURL }}genres/{{ $value | urlize | safeHTML }}">{{- $value -}}</a>
+{{- end -}}
+</td>
+</tr>
+{{ end }}
+{{ if .Params.artists }}
+<tr>
+<td style="border: 0; width: 10%"><b>{{ T "artists" (dict "Count" 2) }}:</b></td>
+<td style="border: 0">
+{{ range $key, $value := .Params.artists }}
+    {{- if $key -}}, {{ end }}{{ $value | safeHTML }}
+{{- end -}}
+</td>
+</tr>
+{{ end }}
+{{ if .Params.repeats }}
+<tr>
+<td style="border: 0; width: 10%"><b>{{ T "repeats" (dict "Count" 2) }}:</b></td>
+<td style="border: 0">
+{{ $params := .Params }}
+{{ range $key, $value := .Params.repeats }}
+    {{- if $key -}}, {{ end }}<a href="{{ $.Site.BaseURL }}events/{{ $value | urlize | safeHTML }}">{{- index $params.repeat_times $key | dateFormat "02.01.2006 15:04" -}}</a>
+{{- end -}}
+</td>
+</tr>
+{{ end }}
+{{ if .Params.sequels }}
+<tr>
+<td style="border: 0; width: 10%"><b>{{ T "sequels" (dict "Count" 2) }}:</b></td>
+<td style="border: 0">
+{{ $params := .Params }}
+{{ range $key, $value := .Params.sequels }}
+    {{- if $key -}}, {{ end }}<a href="{{ $.Site.BaseURL }}events/{{ $value | urlize | safeHTML }}">{{- index $params.sequel_times $key | dateFormat "02.01.2006 15:04" -}}</a>
+{{- end -}}
+</td>
+</tr>
+{{ end }}
+</tbody>
+</table>
+
+
+        {{- /* Comment */ -}}
+        {{- partial "comment.html" . -}}
+    </div>
+{{- end -}}
