@@ -19,7 +19,7 @@
         {{- end -}}
 
 
-        {{ readFile (printf "pre_%s.md" .Language.LanguageName) | markdownify }}
+        {{ readFile (printf "content/pre_posts/pre_%s.md" .Language.Lang) | markdownify }}
 
         <a class="show_old" href="javascript:void(0)" onclick="show_old_events()">{{- T "show_old_events" -}}</a>
         <a class="hide_old" href="javascript:void(0)" onclick="hide_old_events()">{{- T "hide_old_events" -}}</a>
@@ -44,7 +44,7 @@
             {{- partial "paginator.html" . -}}
         {{- end -}}
 
-        {{ readFile (printf "post_%s.md" .Language.LanguageName) | markdownify }}
+        {{ readFile (printf "content/post_posts/post_%s.md" .Language.Lang) | markdownify }}
     </div>
 
 <script>
