@@ -18,8 +18,10 @@
             </div>
         {{- end -}}
 
-
-        {{ readFile (printf "content/pre_posts/pre_%s.md" .Language.Lang) | markdownify }}
+        {{- $pre_pages := where .Site.RegularPages "Type" "pre_posts" -}}
+        {{- range $pre_pages -}}
+            {{- .Content -}}
+        {{- end -}}
 
         <a class="show_old" href="javascript:void(0)" onclick="show_old_events()">{{- T "show_old_events" -}}</a>
         <a class="hide_old" href="javascript:void(0)" onclick="hide_old_events()">{{- T "hide_old_events" -}}</a>
@@ -44,7 +46,10 @@
             {{- partial "paginator.html" . -}}
         {{- end -}}
 
-        {{ readFile (printf "content/post_posts/post_%s.md" .Language.Lang) | markdownify }}
+        {{- $post_pages := where .Site.RegularPages "Type" "post_posts" -}}
+        {{- range $post_pages -}}
+            {{- .Content -}}
+        {{- end -}}
     </div>
 
 <script>
